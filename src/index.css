@@ -7,7 +7,9 @@ body {
   background-color: rgb(202, 212, 212);
 }
 
-
+.flex {
+  display: flex;
+}
 
 .mainFlex {
   display: flex;
