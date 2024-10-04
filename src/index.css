@@ -16,7 +16,14 @@ body {
   background-size: 100% auto;
 }
 
-.main {
-  flex-grow: 4;
-  height: 100vh;
+.addProjectBtn {
+  margin-top: 5vh;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: whitesmoke;
+ }
+
+ .btnText {
+  font-size: 15pt;
 }

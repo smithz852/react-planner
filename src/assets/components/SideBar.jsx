@@ -1,4 +1,5 @@
 import '../components/SideBar.css'
+import ProjectBtn from './ProjectBtn'
 
 export default function SideBar() {
   return (
@@ -6,9 +7,7 @@ export default function SideBar() {
       <div className="sideBar">
         <h1 className="myProjectsHeader">My Projects</h1>
         <section className='flexCenter'>
-          <button className='addProjectBtn'>
-            <p className='btnText'>+ Add Project</p>
-            </button>
+         <ProjectBtn />
         </section>
       </div>
     </>

@@ -11,19 +11,10 @@
   margin-top: 5vh
 }
 
-.addProjectBtn {
- margin-top: 5vh;
- padding-left: 10px;
- padding-right: 10px;
- border-radius: 10px 10px 10px 10px;
- background-color: whitesmoke;
-}
+
 
 .flexCenter {
   display: flex;
   justify-content: center;
 }
 
-.btnText {
-  font-size: 15pt;
-}
