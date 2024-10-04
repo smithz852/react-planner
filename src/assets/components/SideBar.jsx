@@ -1,0 +1,13 @@
+import '../components/SideBar.css'
+
+export default function SideBar() {
+  return (
+    <>
+
+      <div className="sideBar">
+        <h1 className="myProjectsHeader">My Projects</h1>
+      </div>
+      
+    </>
+  )
+}

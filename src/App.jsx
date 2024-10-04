@@ -1,7 +1,13 @@
+import MainPage from "./assets/components/MainPage";
+import SideBar from "./assets/components/SideBar";
+
 function App() {
   return (
     <>
-      <h1 className="my-8 text-center text-5xl font-bold">Hello World</h1>
+    <div className="mainFlex">
+      <SideBar />
+      <MainPage />
+      </div>
     </>
   );
 }

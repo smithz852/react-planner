@@ -1,0 +1,12 @@
+.myProjectsHeader {
+  text-align: center;
+  margin-top: 10vh;
+  color: whitesmoke;
+}
+
+.sideBar {
+  background-color: #2b2a2e;
+  flex-grow: 1;
+  border-radius: 0 40px 0 0;
+  margin-top: 5vh
+}
