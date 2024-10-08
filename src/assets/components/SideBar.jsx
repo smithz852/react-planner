@@ -1,13 +1,17 @@
 import '../components/SideBar.css'
 import ProjectBtn from './ProjectBtn'
+export default function SideBar({addProject}) {
 
-export default function SideBar() {
+function passHandle() {
+  addProject()
+}
+  
   return (
     <>
       <div className="sideBar">
         <h1 className="myProjectsHeader">My Projects</h1>
         <section className='flexCenter'>
-         <ProjectBtn />
+         <ProjectBtn clickedBtn={passHandle}/>
         </section>
       </div>
     </>
