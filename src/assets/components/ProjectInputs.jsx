@@ -40,9 +40,9 @@ export default function ProjectInputs({cancelData}) {
         placeholder="Due Date"
         className="inputStyle "
       />
-      <div>
-      <button onClick={handleClick}>Save</button>
-      <button onClick={handleCancel}>Cancel</button>
+      <div >
+      <button onClick={handleClick} className="saveBtn">Save</button>
+      <button onClick={handleCancel} className="cancelBtn">Cancel</button>
       </div>
     </>
   );

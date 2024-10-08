@@ -11,7 +11,7 @@ function passHandle() {
       <div className="sideBar">
         <h1 className="myProjectsHeader">My Projects</h1>
         <section className='flexCenter'>
-         {!showProject ? <ProjectBtn clickedBtn={passHandle}/> : null}
+         {!showProject ? <ProjectBtn btnName='+ Add Project' clickedBtn={passHandle}/> : null}
         </section>
       </div>
     </>

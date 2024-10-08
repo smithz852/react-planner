@@ -19,7 +19,7 @@ function cancelInput() {
 <div className='startingProject'>
 {!showProject ? <><img src="public\logo.png" alt="notepad and pen image" />
 <h1>No Project Selected</h1>
-<ProjectBtn clickedBtn={passHandle}/> </> : null}
+<ProjectBtn btnName='+ Add Project' clickedBtn={passHandle}/> </> : null}
 {showProject ? <ProjectInputs cancelData={cancelInput} /> : null}
 </div>
     
