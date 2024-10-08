@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import "../components/ProjectInputs.css";
 
-export default function ProjectInputs() {
+export default function ProjectInputs({cancelData}) {
   const [projectInfo, setProjectInfo] = useState();
 
   const projectName = useRef();
@@ -16,9 +16,12 @@ export default function ProjectInputs() {
      })
   }
 
+  function handleCancel() {
+   cancelData()
+  }
+
   return (
     <>
-    
       <input
         type="text"
         ref={projectName}
@@ -37,8 +40,10 @@ export default function ProjectInputs() {
         placeholder="Due Date"
         className="inputStyle "
       />
+      <div>
       <button onClick={handleClick}>Save</button>
-      <button>Cancel</button>
+      <button onClick={handleCancel}>Cancel</button>
+      </div>
     </>
   );
 }

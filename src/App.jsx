@@ -7,8 +7,7 @@ function App() {
   const [projectInput, setProjectInput] = useState(false)
 
   function handleProjectInput() {
-    setProjectInput(true)
-    console.log(projectInput)
+    setProjectInput((show) => !show)
   }
 
 
