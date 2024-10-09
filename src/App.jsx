@@ -20,14 +20,13 @@ function App() {
         [projID]: newProject
       }
      })
-     console.log(allProjectData)
   }
 
 
   return (
     <>
     <div className="mainFlex">
-      <SideBar addProject={handleProjectInput} showProject={projectInput} />
+      <SideBar addProject={handleProjectInput} showProject={projectInput} allProjects={allProjectData}/>
       <MainPage addProject={handleProjectInput} showProject={projectInput} projects={handleProjectData}/>
       </div>
     </>
