@@ -1,16 +1,16 @@
 import { useState } from "react"
 
-export default function ProjectBtn({clickedBtn}) {
+export default function ProjectBtn({clickedBtn, btnName}) {
 
   function handleClick() {
-    console.log('tesst')
+    
     clickedBtn()
   }
 
    return (
     <>
        <button className='addProjectBtn'  onClick={handleClick}>
-            <p className='btnText'>+ Add Project</p>
+            <p className='btnText'>{btnName}</p>
             </button>
     </>
    )
