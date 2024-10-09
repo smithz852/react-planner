@@ -1,15 +1,16 @@
 import { useState, useRef } from "react";
 import "../components/ProjectInputs.css";
 
-export default function ProjectInputs({cancelData}) {
-  const [projectInfo, setProjectInfo] = useState();
+export default function ProjectInputs({cancelData, projectData}) {
+  const [projectID, setProjectID] = useState(1);
 
   const projectName = useRef();
   const description = useRef();
   const dueDate = useRef();
 
   function handleClick() {
-     setProjectInfo({
+     generateID()
+     projectData(projectID, {
       projectName: projectName.current.value,
       description: description.current.value,
       dueDate: dueDate.current.value
@@ -18,6 +19,10 @@ export default function ProjectInputs({cancelData}) {
 
   function handleCancel() {
    cancelData()
+  }
+
+  function generateID() {
+    setProjectID(projectID + 1)
   }
 
   return (
