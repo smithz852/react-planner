@@ -14,8 +14,8 @@ function cancelInput() {
   addProject()
 }
 
-function allProjects(projID, newProject) {
-  projects(projID, newProject)
+function allProjects(newProject) {
+  projects(newProject)
 }
 
   return (
