@@ -18,3 +18,13 @@
   justify-content: center;
 }
 
+.projectBtns {
+  text-align: center;
+   color : white;
+   font-size: 23pt;
+}
+
+.projectBtns:hover {
+  color: rgb(207, 250, 199);
+  cursor: pointer;
+}
