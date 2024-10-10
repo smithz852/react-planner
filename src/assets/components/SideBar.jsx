@@ -4,7 +4,7 @@ export default function SideBar({addProject, showProject, allProjects}) {
 
   const projectsArr = [allProjects]
   const projects = projectsArr[0]
-  console.log()
+  console.log(allProjects)
 
 function passHandle() {
   addProject()
@@ -15,11 +15,12 @@ function passHandle() {
       <div className="sideBar">
         <h1 className="myProjectsHeader">My Projects</h1>
         <section className='flexCenter'>
-        {(!showProject && !allProjects) ? <ProjectBtn btnName='+ Add Project' clickedBtn={passHandle}/> : null}
+        {(showProject !== 'input') ? <ProjectBtn btnName='+ Add Project' clickedBtn={passHandle}/> : null}
         </section>
         
          {projectsArr[0] !== undefined ? Object.keys(projects).map(keys => {
             const singleProject = projects[keys]
+            console.log('side bar', singleProject.projectName)
             // console.log('el', singleProject.projectName)
             return <div>
               <p className='projectBtns'>{singleProject.projectName}</p>

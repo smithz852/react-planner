@@ -44,7 +44,7 @@ export default function ProjectInputs({cancelData, projectData}) {
       />
       <div >
       <button onClick={handleClick} className="saveBtn">Save</button>
-      <button onClick={handleCancel} className="cancelBtn">Cancel</button>
+      <button onClick={() => handleCancel('cancel')} className="cancelBtn">Cancel</button>
       </div>
     </>
   );
