@@ -1,11 +1,14 @@
 import '../components/MainPage.css'
+import { forwardRef, useRef } from 'react'
 import ProjectBtn from './ProjectBtn'
 import ProjectInputs from './ProjectInputs'
 import ProjectPage from './ProjectPage'
 
 
 
-export default function MainPage({addProject, showProject, projects, allData}) {
+const MainPage = forwardRef(function MainPage({addProject, showProject, projects, allData}, ref) {
+
+  
 
   function passHandle(pass) {
     console.log(pass)
@@ -22,7 +25,7 @@ function allProjects(newProject) {
 
   return (
   <div className="main">
-    {showProject === 'save' ? <ProjectPage projectData={allData}/> : null}
+    {showProject === 'save' ? <ProjectPage projectData={allData} ref={ref}/> : null}
 <div className='startingProject'>
 
 {showProject ==='home' ? <><img src="public\logo.png" alt="notepad and pen image" />
@@ -34,4 +37,6 @@ function allProjects(newProject) {
 </div>
       </div>
   )
-}
+})
+
+export default MainPage;
