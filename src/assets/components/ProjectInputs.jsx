@@ -12,7 +12,8 @@ export default function ProjectInputs({cancelData, projectData}) {
      projectData({
       projectName: projectName.current.value,
       description: description.current.value,
-      dueDate: dueDate.current.value
+      dueDate: dueDate.current.value,
+      tasks: []
      })
   }
 
