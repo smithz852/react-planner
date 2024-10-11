@@ -28,4 +28,9 @@ body {
   font-size: 15pt;
 }
 
+.addProjectBtn:hover {
+  background-color: rgb(185, 185, 185);
+  cursor: pointer;
+}
+
 
