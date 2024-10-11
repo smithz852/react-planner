@@ -2,14 +2,26 @@ import "../components/ProjectPage.css";
 import { forwardRef, useState, useRef } from "react";
 
 const ProjectPage = forwardRef(function ProjectPage({ projectData }, ref) {
+  
+
   const [selectedProject, setSelectedProject] = useState(ref.current);
+  const projectsArr = [projectData];
+  const projects = projectsArr[0];
+  const taskArr = projectsArr[0][selectedProject].tasks
+  const [taskUpdated, isTaskUpdated] = useState(taskArr)
 
   const taskRef = useRef()
 
-  const projectsArr = [projectData];
-  const projects = projectsArr[0];
+  
+  
 
-
+function handleClick() {
+  
+  console.log('taskArr', taskArr)
+  isTaskUpdated(taskArr.push(taskRef.current.value))
+  console.log('push', selectedProject)
+ 
+}
 
   // console.log("project data", projectData);
   // console.log("key obj", parseInt(Object.keys(projects)));
@@ -17,23 +29,39 @@ const ProjectPage = forwardRef(function ProjectPage({ projectData }, ref) {
   return (
     <>
       <div className="projectContainer">
-        <h1 style={{'font-size': '40pt'}}>{projectsArr[0][selectedProject].projectName}</h1>
-        <h4 className="projectDetails" style={{'font-size': '20pt'}}>
+        <h1 style={{'fontSize': '40pt'}}>{projectsArr[0][selectedProject].projectName}</h1>
+        <h4 className="projectDetails" style={{'fontSize': '20pt'}}>
           {projectsArr[0][selectedProject].description}
         </h4>
-        <h4 className="projectDetails" style={{'font-size': '20pt'}}>
+        <h4 className="projectDetails" style={{'fontSize': '20pt'}}>
           Due: {projectsArr[0][selectedProject].dueDate}
         </h4>
       </div>
       <div className="taskContainer">
-      <h2 style={{'font-size': '30pt'}}>Tasks:</h2>
+      <h2 style={{'fontSize': '30pt'}}>Tasks:</h2>
       <input type="text" ref={taskRef}
         placeholder="Enter Task" className="inputStyle"/>
-        <button className="saveBtn">Add Task</button>
+        <button className="saveBtn" onClick={handleClick}>Add Task</button>
+        </div>
+        <div>
+         {taskUpdated > 0 ? taskArr.map(el => {
+          return <p>{el}</p>
+         })
+        : null}
         </div>
     </>
   );
 });
+
+// {projectsArr[0] !== undefined ? Object.keys(projects).map(keys => {
+//   const singleProject = projects[keys]
+//   console.log('side bar', singleProject.projectName)
+//   console.log('key?', keys)
+//   // console.log('el', singleProject.projectName)
+//   return <div key={keys}>
+//     <p className='projectBtns'>{singleProject.projectName}</p>
+//   </div>
+// }) : null}
 
 
 export default ProjectPage;
