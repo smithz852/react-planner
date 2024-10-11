@@ -20,7 +20,7 @@ function handleClick() {
   console.log('taskArr', taskArr)
   isTaskUpdated(taskArr.push(taskRef.current.value))
   console.log('push', selectedProject)
- 
+  
 }
 
   // console.log("project data", projectData);
@@ -45,7 +45,10 @@ function handleClick() {
         </div>
         <div>
          {taskUpdated > 0 ? taskArr.map(el => {
-          return <p>{el}</p>
+          return <div className="flex taskContainer">
+            <p style={{'fontSize': '20pt'}}>{el}</p>
+            <button className="cancelBtn" style={{'fontSize': '15pt'}}>Done</button>
+            </div>
          })
         : null}
         </div>
@@ -53,15 +56,6 @@ function handleClick() {
   );
 });
 
-// {projectsArr[0] !== undefined ? Object.keys(projects).map(keys => {
-//   const singleProject = projects[keys]
-//   console.log('side bar', singleProject.projectName)
-//   console.log('key?', keys)
-//   // console.log('el', singleProject.projectName)
-//   return <div key={keys}>
-//     <p className='projectBtns'>{singleProject.projectName}</p>
-//   </div>
-// }) : null}
 
 
 export default ProjectPage;
