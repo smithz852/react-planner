@@ -1,48 +1,37 @@
-import '../components/ProjectPage.css'
-import { forwardRef, useState } from 'react'
+import "../components/ProjectPage.css";
+import { forwardRef, useState, useRef } from "react";
 
-const ProjectPage =  forwardRef(function ProjectPage({ projectData }, ref) {
+const ProjectPage = forwardRef(function ProjectPage({ projectData }, ref) {
+  const [selectedProject, setSelectedProject] = useState(ref.current);
 
-  const [selectedProject, setSelectedProject] = useState(ref.current)
+  const taskRef = useRef()
 
-  const projectsArr = [projectData]
-  const projects = projectsArr[0]
-   console.log('project data', projectData)
-   console.log('key obj', parseInt(Object.keys(projects)))
-   console.log('ref', ref)
-   console.log('projects', projects)
-   console.log(selectedProject)
-   console.log('example output', projectsArr[0][selectedProject].projectName)
+  const projectsArr = [projectData];
+  const projects = projectsArr[0];
+
+  
+
+  // console.log("project data", projectData);
+  // console.log("key obj", parseInt(Object.keys(projects)));
+
   return (
     <>
-    <div className="projectContainer">
-    <h1>{projectsArr[0][selectedProject].projectName}</h1>
-      <h4 className='projectDetails'>{projectsArr[0][selectedProject].description}</h4>
-      <h4 className='projectDetails'>{projectsArr[0][selectedProject].dueDate}</h4>
-    </div>
-      
-    </>  
-  )
-})
+      <div className="projectContainer">
+        <h1>{projectsArr[0][selectedProject].projectName}</h1>
+        <h4 className="projectDetails">
+          {projectsArr[0][selectedProject].description}
+        </h4>
+        <h4 className="projectDetails">
+          {projectsArr[0][selectedProject].dueDate}
+        </h4>
+      </div>
+      <h2>Tasks:</h2>
+      <input type="text" ref={taskRef}
+        placeholder="Enter Task"/>
+        <button>Add Task</button>
+    </>
+  );
+});
 
-
-
-{/* <>
-//     <div className="projectContainer">
-//       {/* Need to make this render so that only the most recent, or the selected, project renders */}
-//       {/* right now all available projects will be rendered on page with .map() */}
-//       {projectsArr[0] !== undefined ? Object.keys(projects).map(keys => {
-//   const singleProject = projects[keys]
-//   // console.log('el', singleProject.projectName)
-//   return <>
-//   <div key={keys}>
-//   <h1>{singleProject.projectName}</h1>
-//   <h4 className='projectDetails'>{singleProject.description}</h4>
-//   <h4 className='projectDetails'>{singleProject.dueDate}</h4>
-//   </div>
-//   </>
-// }) : null}
-//       </div>
-//     </> */}
 
 export default ProjectPage;
