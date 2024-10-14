@@ -31,8 +31,10 @@ function App() {
         [(projID.current += 1)]: newProject,
       };
     });
-    
-    
+  }
+
+  function clickSavedProject(key) {
+    setSelectedProject(key)
   }
 
   return (
@@ -42,6 +44,7 @@ function App() {
           addProject={handleProjectInput}
           showProject={projectInput}
           allProjects={allProjectData}
+          clickedProject={clickSavedProject}
         />
         <MainPage
           addProject={handleProjectInput}
