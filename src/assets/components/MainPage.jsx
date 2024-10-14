@@ -6,7 +6,7 @@ import ProjectPage from './ProjectPage'
 
 
 
-const MainPage = forwardRef(function MainPage({addProject, showProject, projects, allData}, ref) {
+const MainPage = function MainPage({addProject, showProject, projects, allData, selectedProj}) {
 
   
 
@@ -25,7 +25,7 @@ function allProjects(newProject) {
 
   return (
   <div className="main">
-    {showProject === 'save' ? <ProjectPage projectData={allData} ref={ref}/> : null}
+    {(showProject === 'save' && selectedProj) ? <ProjectPage projectData={allData} selected={selectedProj}/> : null}
 <div className='startingProject'>
 
 {showProject ==='home' ? <><img src="public\logo.png" alt="notepad and pen image" />
@@ -37,6 +37,6 @@ function allProjects(newProject) {
 </div>
       </div>
   )
-})
+}
 
 export default MainPage;
