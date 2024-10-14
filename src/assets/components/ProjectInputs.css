@@ -1,9 +1,10 @@
 .center {
   margin-top: 30vh;
+  margin-bottom: 1vh;
 }
 
 .spacing {
-  margin: 3%;
+  margin: 1%;
 }
 
 .inputStyle {
@@ -46,6 +47,13 @@
   cursor: pointer;
 }
 
-.inputError {
-  border: 3px rgb(231, 12, 12) solid;
+.error {
+  width: 45%;
+  font-size: 20pt;
+  border-radius: 10px 10px 10px 10px;
+  border: 3px rgb(230, 28, 21) solid;
 }
+
+
+
+

@@ -16,6 +16,7 @@ const [error, isError] = useState({
     const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/;
    
  if (projectName.current.value === '') {
+  projectName.current.placeholder = 'Please Enter A Project Name'
   isError(prevError => ({
     ...prevError,
      name: true
@@ -24,6 +25,7 @@ const [error, isError] = useState({
  
    
  if (description.current.value === '') {
+  description.current.placeholder = 'Please Enter A Description'
     isError(prevError => ({
       ...prevError,
        descr: true
@@ -32,6 +34,7 @@ const [error, isError] = useState({
   
    
  if (dueDate.current.value === '' || !dateRegex.test(dueDate.current.value)) {
+  dueDate.current.placeholder = "Please Enter A Date In MM/DD/YYYY Format"
   isError(prevError => ({
     ...prevError,
      dueDate: true
@@ -57,26 +60,23 @@ const [error, isError] = useState({
 
   return (
     <>
-    {error.name ? <h4>Please Enter A Project Name</h4> : null}
       <input
         type="text"
         ref={projectName}
         placeholder="Project"
-        className="center inputStyle"
+        className={`center  ${error.name ? 'error' : 'inputStyle'}`}
       />
-      {error.descr ? <h4>Please Enter A Description</h4> : null}
       <input
         type="text"
         ref={description}
         placeholder="Description"
-        className="spacing inputStyle desc"
+        className={`spacing  desc ${error.descr ? 'error' : 'inputStyle'}`}
       />
-      {error.dueDate ? <h4>Please Enter A Date in MM/DD/YY Format</h4> : null}
       <input
         type="text"
         ref={dueDate}
         placeholder="Due Date: MM/DD/YYYY"
-        className="inputStyle "
+        className={` inputStyle ${error.dueDate ? 'error' : null}`}
       />
       <div >
       <button onClick={handleClick} className="saveBtn">Save</button>
