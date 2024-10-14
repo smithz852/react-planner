@@ -4,10 +4,9 @@ export default function SideBar({addProject, showProject, allProjects, clickedPr
 
   const projectsArr = [allProjects]
   const projects = projectsArr[0]
-  console.log('all projects', allProjects)
 
-function passHandle() {
-  addProject()
+function passHandle(type) {
+  addProject(type)
 }
 
 function handleSelect(key) {
@@ -25,8 +24,8 @@ function handleSelect(key) {
         
          {projectsArr[0] !== undefined ? Object.keys(projects).map(keys => {
             const singleProject = projects[keys]
-            console.log('side bar', singleProject.projectName)
-            console.log('key?', keys)
+            // console.log('side bar', singleProject.projectName)
+            // console.log('key?', keys)
             // console.log('el', singleProject.projectName)
             return <div key={keys}>
               <p className='projectBtns' onClick={() => handleSelect(keys)}>{singleProject.projectName}</p>

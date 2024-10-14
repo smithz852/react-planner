@@ -11,7 +11,6 @@ const MainPage = function MainPage({addProject, showProject, projects, allData, 
   
 
   function passHandle(pass) {
-    console.log(pass)
     addProject(pass)
   }
 
