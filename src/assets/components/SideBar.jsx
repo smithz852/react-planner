@@ -6,8 +6,8 @@ export default function SideBar({addProject, showProject, allProjects, clickedPr
   const projects = projectsArr[0]
   console.log('all projects', allProjects)
 
-function passHandle() {
-  addProject()
+function passHandle(type) {
+  addProject(type)
 }
 
 function handleSelect(key) {
