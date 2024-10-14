@@ -6,6 +6,7 @@ function App() {
   const [projectInput, setProjectInput] = useState("home");
   const [allProjectData, setProjectData] = useState();
   const projID = useRef(0);
+  const [selectedProject, setSelectedProject] = useState();
 
   function handleProjectInput(show) {
     console.log(show);
@@ -20,14 +21,18 @@ function App() {
 
   function handleProjectData(newProject) {
     setProjectInput("save");
-    console.log((projID.current += 1), newProject);
+    // console.log((projID.current += 1), newProject);
+    setTimeout(() => {
+      setSelectedProject(projID.current)
+    }, 100)
     setProjectData((prevData) => {
       return {
         ...prevData,
         [(projID.current += 1)]: newProject,
       };
     });
-    console.log("all", allProjectData);
+    
+    
   }
 
   return (
@@ -43,7 +48,7 @@ function App() {
           showProject={projectInput}
           projects={handleProjectData}
           allData={allProjectData}
-          ref={projID}
+          selectedProj={selectedProject}
         />
       </div>
     </>

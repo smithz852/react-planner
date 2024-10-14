@@ -1,8 +1,10 @@
 import "../components/ProjectPage.css";
 import { forwardRef, useState, useRef } from "react";
 
-const ProjectPage = forwardRef(function ProjectPage({ projectData }, ref) {
-  const [selectedProject, setSelectedProject] = useState(ref.current);
+const ProjectPage = function ProjectPage({ projectData, selected }) {
+
+ const selectedProject = selected
+
   const projectsArr = [projectData];
   const projects = projectsArr[0];
   const taskArr = projectsArr[0][selectedProject].tasks;
@@ -66,6 +68,6 @@ const ProjectPage = forwardRef(function ProjectPage({ projectData }, ref) {
       </div>
     </>
   );
-});
+};
 
 export default ProjectPage;
