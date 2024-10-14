@@ -9,7 +9,7 @@ function App() {
   const [selectedProject, setSelectedProject] = useState();
 
   function handleProjectInput(show) {
-    console.log(show);
+    // console.log(show);
     if (show === "input") {
       setProjectInput("input");
     } else if (show === "save") {

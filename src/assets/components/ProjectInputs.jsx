@@ -34,13 +34,14 @@ const [error, isError] = useState({
   
    
  if (dueDate.current.value === '' || !dateRegex.test(dueDate.current.value)) {
-  dueDate.current.placeholder = "Please Enter A Date In MM/DD/YYYY Format"
+  dueDate.current.value = ''
+  dueDate.current.placeholder = "MM/DD/YYYY"
   isError(prevError => ({
     ...prevError,
      dueDate: true
   }))
-  console.log(dateRegex.test(dueDate.current.value))
-  console.log(dueDate.current.value)
+  // console.log(dateRegex.test(dueDate.current.value))
+  // console.log(dueDate.current.value)
    return
  } else {
   projectData({
