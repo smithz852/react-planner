@@ -1,45 +1,52 @@
 import "../components/ProjectPage.css";
-import { forwardRef, useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const ProjectPage = function ProjectPage({ projectData, selected }) {
-
- const selectedProject = selected
-
+  const selectedProject = selected;
+  
+ 
   const projectsArr = [projectData];
   const projects = projectsArr[0];
-  const taskArr = projectsArr[0][selectedProject].tasks;
-  const [taskUpdated, setTaskUpdated] = useState([...taskArr]); // Spread to create a new array copy
   const taskRef = useRef();
+
+  
+  const [taskUpdated, setTaskUpdated] = useState([...projects[selectedProject].tasks]);
+
+  // Effect to update tasks when the selected project changes
+  useEffect(() => {
+    // Update the task state to the tasks of the newly selected project
+    setTaskUpdated([...projects[selectedProject].tasks]);
+  }, [selectedProject, projects]);
+
 
   function handleClick() {
     const newTask = taskRef.current.value;
     if (newTask) {
-      const updatedTasks = [...taskUpdated, newTask]; // Create a new array with the added task
-      setTaskUpdated(updatedTasks);
-      taskRef.current.value = "";
-      taskArr.push(newTask)
-      console.log('all tasks', taskArr)
-      console.log('proj data', projectData)
+      const updatedTasks = [...taskUpdated, newTask]; 
+      setTaskUpdated(updatedTasks); 
+      taskRef.current.value = ""; 
+      projects[selectedProject].tasks.push(newTask); // Add new task to the project data
     }
   }
 
+  
   function handleRemoveTask(index) {
     const updatedTasks = taskUpdated.filter((_, i) => i !== index); // Remove the task at the clicked index
-    taskArr.filter((_, i) => i !== index);
-    setTaskUpdated(updatedTasks);
+    setTaskUpdated(updatedTasks); 
+    projects[selectedProject].tasks = updatedTasks; // Update the actual project data to reflect changes
   }
 
   return (
     <>
       <div className="projectContainer">
         <h1 style={{ fontSize: "40pt" }}>
-          {projectsArr[0][selectedProject].projectName}
+          {projects[selectedProject].projectName}
         </h1>
         <h4 className="projectDetails" style={{ fontSize: "20pt" }}>
-          {projectsArr[0][selectedProject].description}
+          {projects[selectedProject].description}
         </h4>
         <h4 className="projectDetails" style={{ fontSize: "20pt" }}>
-          Due: {projectsArr[0][selectedProject].dueDate}
+          Due: {projects[selectedProject].dueDate}
         </h4>
       </div>
       <div className="taskContainer">
@@ -55,8 +62,8 @@ const ProjectPage = function ProjectPage({ projectData, selected }) {
         </button>
       </div>
       <div>
-        {taskArr.length > 0
-          ? taskArr.map((el, index) => (
+        {taskUpdated.length > 0
+          ? taskUpdated.map((el, index) => (
               <div key={index} className="flex taskContainer">
                 <p style={{ fontSize: "20pt" }}>{el}</p>
                 <button
