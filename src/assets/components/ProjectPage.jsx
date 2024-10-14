@@ -17,11 +17,15 @@ const ProjectPage = function ProjectPage({ projectData, selected }) {
       const updatedTasks = [...taskUpdated, newTask]; // Create a new array with the added task
       setTaskUpdated(updatedTasks);
       taskRef.current.value = "";
+      taskArr.push(newTask)
+      console.log('all tasks', taskArr)
+      console.log('proj data', projectData)
     }
   }
 
   function handleRemoveTask(index) {
     const updatedTasks = taskUpdated.filter((_, i) => i !== index); // Remove the task at the clicked index
+    taskArr.filter((_, i) => i !== index);
     setTaskUpdated(updatedTasks);
   }
 
@@ -51,8 +55,8 @@ const ProjectPage = function ProjectPage({ projectData, selected }) {
         </button>
       </div>
       <div>
-        {taskUpdated.length > 0
-          ? taskUpdated.map((el, index) => (
+        {taskArr.length > 0
+          ? taskArr.map((el, index) => (
               <div key={index} className="flex taskContainer">
                 <p style={{ fontSize: "20pt" }}>{el}</p>
                 <button
