@@ -1,5 +1,5 @@
 import '../components/MainPage.css'
-import { forwardRef, useRef } from 'react'
+import logo from '../../images/logo.png'
 import ProjectBtn from './ProjectBtn'
 import ProjectInputs from './ProjectInputs'
 import ProjectPage from './ProjectPage'
@@ -27,7 +27,7 @@ function allProjects(newProject) {
     {(showProject === 'save' && selectedProj) ? <ProjectPage projectData={allData} selected={selectedProj}/> : null}
 <div className='startingProject'>
 
-{showProject ==='home' ? <><img src="public\logo.png" alt="notepad and pen image" />
+{showProject ==='home' ? <><img src={logo} alt="notepad and pen image" />
 <h1>No Project Selected</h1>
 <ProjectBtn btnName='+ Add Project' clickedBtn={passHandle}/> </> : null}
 

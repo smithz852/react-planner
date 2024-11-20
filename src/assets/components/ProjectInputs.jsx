@@ -60,6 +60,11 @@ const [error, isError] = useState({
 
 
   return (
+    // NOTE: One way to setup inputs
+    // <p>
+    // <label>Name of input<label/>
+    // <input />
+    //</p>
     <>
       <input
         type="text"

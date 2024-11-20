@@ -16,6 +16,7 @@ function handleSelect(key) {
   
   return (
     <>
+    {/* NOTE: coulde use <aside> which is more for sidebars */}
       <div className="sideBar">
         <h1 className="myProjectsHeader">My Projects</h1>
         <section className='flexCenter'>
